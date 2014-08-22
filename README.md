@@ -1,4 +1,4 @@
 blmR
 ====
 
-A kind of bmisc, mostly tied to specific analysis
+A kind of bmisc (sorry), mostly tied to specific analysis
