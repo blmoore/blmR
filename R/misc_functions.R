@@ -108,15 +108,15 @@ circPermute <- function(vec, n){
 }
 
 
-# getAUC.gen <- function(cv.out){
-#   require("ROCR")
-#   range01 <- function(x){(x-min(x))/(max(x)-min(x))}
-#   g.pred <- prediction(range01(cv.out[,1]), 
-#                        ifelse(cv.out[,2]>0,1,0))
-#   g.perf <- performance(g.pred, "tpr", "fpr")
-#   auc <- attr(performance(g.pred, "auc"), "y.values")[[1]]
-#   auc
-# }
+getAUC.gen <- function(cv.out){
+  require("ROCR")
+  range01 <- function(x){(x-min(x))/(max(x)-min(x))}
+  g.pred <- prediction(range01(cv.out[,1]), 
+                       ifelse(cv.out[,2]>0,1,0))
+  g.perf <- performance(g.pred, "tpr", "fpr")
+  auc <- attr(performance(g.pred, "auc"), "y.values")[[1]]
+  auc
+}
 
 #' Add linear regression eqn to ggplot2 graph
 #' 
@@ -166,6 +166,7 @@ lm_eqn = function(m) {
 #' @seealso \code{\link{modelEigens.all}}
 #' 
 #' @examples
+#' data("blmR")
 #' modelEigens(h.dat)
 modelEigens <- function(all.dat, n=10, ...){
   require("caret")
@@ -434,15 +435,15 @@ rmse <- function(obs, pred) sqrt(mean((obs-pred)^2))
 
 #' Build summary data.frame
 #' 
-#' Might now be easier to do in short \code{dplyr} script.
+#' Essentially just wraps a fairly simple \code{plyr} munging call.
+#' Better to just learn \code{dplyr} properly.
 #' 
 #' @export
 #' 
 #' @references \url{http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/}
-
 summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
                       conf.interval=.95, .drop=TRUE) {
-  require(plyr)
+  library("plyr")
   
   # New version of length which can handle NA's: if na.rm==T, don't count them
   length2 <- function (x, na.rm=FALSE) {
