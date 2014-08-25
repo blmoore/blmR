@@ -10,12 +10,8 @@ modelEigens(all.dat, n = 10, ...)
 
 \item{k}{number of folds}
 }
-\value{
-\code{list} of "preds": RF predictions across all folds
-  "some other stff"
-}
 \description{
-Later switched to \code{modelEigens.all}. This version creates manual
+\strong{Deprecated}, use \code{modelEigens.all}. This version creates manual
 folds for \eqn{k}{k}-fold cross-validation (default k = 10), manual
 as opposed to using \code{caret} methods correctly. Cross-validation
 isn't really necessary with a \code{randomForest} approach as each
@@ -24,6 +20,7 @@ the forest to reproduce essentially a bootstrapped, many sample
 cross-validation scheme.
 }
 \examples{
+data("blmR")
 modelEigens(h.dat)
 }
 \seealso{

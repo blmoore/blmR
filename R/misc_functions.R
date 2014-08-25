@@ -353,15 +353,26 @@ plotPredRes.homer <- function (modelOut=NA, x=NA, y=NA, col="blue", ct="H1"){
   par(def.par)
 }
 
-plotPredRes.ice <- function(modelOut=NA, x=NA, y=NA, 
+#' Scattergraph of model predictions
+#' 
+#' Plots empirical vs. obs values with some summary metrics.
+#' Tries to help reduce overplotting using transparency and 
+#' overlaid density isoclines.
+#' 
+#' @export
+#' @param x Predictions (numeric vector)
+#' @param y Observations (numeric vector)
+#' 
+#' @examples
+#' modelEigens.all(h.dat)
+plotPredRes <- function(modelOut=NA, x=NA, y=NA, 
                              col="blue", ct="H1", scale.factor=.7){
   require("calibrate")
   if(!is.na(x) & !is.na(y)){
     d1 <- x
     d2 <- y
   } else {
-    d1 <- modelOut$preds[,1]
-    d2 <- modelOut$preds[,2]
+    stop("Must supply x and y.")
   }
   xy <- cbind(d1, d2)
   colour  <- "#0000ff42"
