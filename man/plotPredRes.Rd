@@ -17,6 +17,6 @@ Tries to help reduce overplotting using transparency and
 overlaid density isoclines.
 }
 \examples{
-modelEigens.all(h.dat)
+plotPredRes(h.mod$predicted, h.mod$y)
 }
 

@@ -364,7 +364,7 @@ plotPredRes.homer <- function (modelOut=NA, x=NA, y=NA, col="blue", ct="H1"){
 #' @param y Observations (numeric vector)
 #' 
 #' @examples
-#' modelEigens.all(h.dat)
+#' plotPredRes(h.mod$predicted, h.mod$y)
 plotPredRes <- function(modelOut=NA, x=NA, y=NA, 
                              col="blue", ct="H1", scale.factor=.7){
   require("calibrate")
@@ -423,8 +423,6 @@ plotPredRes <- function(modelOut=NA, x=NA, y=NA,
           col=colour, border=colour, lwd=4)
   par(def.par)
 }
-
-plotPredRes <- plotPredRes.ice
 
 procStates <- function(fpath, res=c(1,100), nr=c(7,8)){
   states <- read.table(fpath, stringsAsFactors=F, header=T, 
