@@ -43,10 +43,10 @@ load.all.pkgs <- function(){
 #' corrgram(matrix(rnorm(10000), 2000), 
 #'   upper.panel=panel.pts2, 
 #'   lower.panel=panel.pts)
-panel.pts2 <- function (x, y, corr = NULL, col.regions, ...){
+panel.pts2 <- function (x, y, corr = NULL, col.regions, cor.method, ...){
   if (!is.null(corr)) 
     return()
-  plot.xy(xy.coords(x, y), type = "p", col=rgb(0.6,0.6,0.6,0.3),...)
+  plot.xy(xy.coords(x, y), type = "p", col=rgb(0.6,0.6,0.6,0.3), ...)
   box(col = "white")
 }
 
