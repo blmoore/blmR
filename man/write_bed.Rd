@@ -17,7 +17,7 @@ writing BED files.
 }
 \examples{
 write_bed(data.frame(chr=c("chr1", "chr2"),
-  start=c(100, 450), end=c(200, 300), id=c(p1, p2)),
+  start=c(100, 450), end=c(200, 300), id=c("p1", "p2")),
   "outfile.bed")
 }
 
