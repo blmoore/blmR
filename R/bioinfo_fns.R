@@ -15,3 +15,16 @@
 write_bed <- function(df, fname)
   write.table(df, fname, quote=F, row.names=F,
               col.names=F, sep="\t")
+
+#' Alias to source remote bioconductor script
+#' 
+#' Remembering/typing this URL is a pain.
+#' 
+#' @export
+#' 
+#' @examples
+#' bioconductor()
+#' biocLite()
+#'   
+bioconductor <- function()
+  source("http://bioconductor.org/biocLite.R")
