@@ -28,3 +28,31 @@ write_bed <- function(df, fname)
 #'   
 bioconductor <- function()
   source("http://bioconductor.org/biocLite.R")
+
+#' Add a fourth "ID" column to bed-style files
+#' 
+#' There are three required BED fields: chr, chromStart 
+#' and chromEnd. The fourth (optional) column is reserved
+#' for name which this function generates as "chr-chromStart".
+#' 
+#' @export
+#' 
+#' @param bed_file either a dataframe or filename to be read
+#' 
+#' @examples
+#' bed <- data.frame(chr=c("chr1", "chr2"),
+#'   start=c(100, 450), end=c(200, 300))
+#'   
+#' add_bed_id(bed) 
+#'  
+add_bed_id <- function(bed_file){
+  # work with either filenames or data.frames
+  bed <- if(is.character(bed_file))
+    read.table(bed_file, header=F, sep="\t")[,1:3] 
+  else
+    bed_file[,1:3]
+  
+  # cat together chr-pos for identifier
+  bed[,4] <- gsub(" ", "", apply(bed[,1:2], 1, paste0, collapse="-"))
+  bed
+}
