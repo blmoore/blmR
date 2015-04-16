@@ -1,7 +1,3 @@
-########## hvl.R ##################
-# Function repository for code    #
-# that's reused across scripts.   #
-###################################
 
 #' Load all packages for project
 #'
