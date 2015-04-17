@@ -1,18 +1,19 @@
 #' Order one vector to match another
 #' 
-#' There are three required BED fields: chr, chromStart 
-#' and chromEnd. The fourth (optional) column is reserved
-#' for name which this function generates as "chr-chromStart".
+#' Simply calls `order(match(...)`.
 #' 
 #' @export
 #' 
 #' @param x see `?match`
 #' 
 #' @examples
-#' a <- 1:5
-#' b <- 5:1
-#'   
-#' (match_order(a, b))
-#' # [1] 5 4 3 2 1
+#' a <- letters[5:1]
+#' b <- letters[1:10]
+#' 
+#' (a[match_order(a, b)])
+#' # [1] "a" "b" "c" "d" "e"
+#' 
+#' (b[match_order(b, a)])
+#' #  [1] "e" "d" "c" "b" "a" "f" "g" "h" "i" "j"
 match_order <- function(...) 
   order(match(...))
