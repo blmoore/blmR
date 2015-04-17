@@ -7,10 +7,10 @@
 match_order(...)
 }
 \arguments{
-\item{x}{see `?match`}
+\item{x}{see \code{?match}}
 }
 \description{
-Simply calls `order(match(...)`.
+Simply calls \code{order(match(...)}.
 }
 \examples{
 a <- letters[5:1]

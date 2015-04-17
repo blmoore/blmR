@@ -1,10 +1,10 @@
 #' Order one vector to match another
 #' 
-#' Simply calls `order(match(...)`.
+#' Simply calls \code{order(match(...)}.
 #' 
 #' @export
 #' 
-#' @param x see `?match`
+#' @param x see \code{?match}
 #' 
 #' @examples
 #' a <- letters[5:1]
