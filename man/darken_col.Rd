@@ -7,7 +7,7 @@
 darken_col(colname, by = 0.05)
 }
 \arguments{
-\item{by}{proportion to darken by (default \code{.05} for 5 percent)}
+\item{by}{proportion to darken colour (default \code{.05} for 5 percent)}
 }
 \description{
 Supply a colour name or RGB and a proportion

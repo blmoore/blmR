@@ -12,7 +12,7 @@
 #' image(as.matrix(1:5), col=cols)
 darken_col <- function(colname, by=.05){
   rgb_vals <- col2rgb(colname) * (1-by)
-  rgb(t(rgb_vals), max=255)
+  as.vector(rgb(t(rgb_vals), max=255))
 }
 
 #' Order one vector to match another
