@@ -1,3 +1,20 @@
+#' Darken an R colour by a specified proportion
+#' 
+#' Supply a colour name or RGB and a proportion
+#' between 0 and 1.
+#' 
+#' @export
+#' 
+#' @param by proportion to darken colour (default \code{.05} for 5 percent)
+#' 
+#' @examples
+#' cols <- sapply(seq(0, .5, by=.1), function(i) darken_col("red", i))
+#' image(as.matrix(1:5), col=cols)
+darken_col <- function(colname, by=.05){
+  rgb_vals <- col2rgb(colname) * (1-by)
+  rgb(t(rgb_vals), max=255)
+}
+
 #' Order one vector to match another
 #' 
 #' Simply calls \code{order(match(...)}.
@@ -36,3 +53,5 @@ title_case <- function(x) {
   paste(toupper(substring(s, 1, 1)), tolower(substring(s, 2)),
         sep = "", collapse = " ")
 }
+
+
